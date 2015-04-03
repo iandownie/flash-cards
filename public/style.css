@@ -1,78 +1,375 @@
 * {
   box-sizing: border-box; }
-
-.category-button {
-  border: 1px solid black;
-  background: none;
-  padding: 20px;
-  margin-right: 15px;
-  cursor: pointer;
-  outline: none; }
-  .category-button.active {
-    background: gainsboro; }
-
+body{
+  background-color: black;
+}
 .flash-card {
-  width: 60%;
-  height: 400px;
+  color: #000;
+  text-shadow: -1px -1px #30aa30;
+  min-width: 650px;
+  width: 45%;
+  height: 300px;
   margin: 0 auto;
-  margin-top: 40px;
-  border: 1px solid black;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
   font-family: Helvetica;
-  padding: 50px;
-  box-shadow: 3px 4px 5px 1px #6b6b6b; }
+  padding: 30px;
+  background-color: rgb(52, 255, 20);
+  border: 2px dashed #fff;
+  line-height: 1.3em;
+  box-shadow: 0 0 0 4px rgb(52, 255, 20), 0px 0px 17px 14px rgba(52, 255, 20, 0.5);
+  border-radius: 10%;
+  float: left; 
+  margin-left:3.3333% }
   .flash-card h1 {
+    border: 2px dashed #fff;
+    line-height: 1.3em;
+    box-shadow: 0 0 0 4px rgb(52, 255, 20), 2px 1px 6px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 3%;
     font-size: 40px;
     text-align: center;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    font: Times }
+  .flash-card h1::first-letter{
+      font-size: 60px;
+      color: green;
+      font-family: Times;
+    }
+  .flash-card ul li{
+    border: 2px dashed #fff;
+    line-height: 1.3em;
+    box-shadow: 0 0 0 4px rgb(52, 255, 20), 2px 1px 6px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 3%;
+  }  
   .flash-card .flash-card-answers {
     width: 100%;
     margin: 0 auto;
-    clear: both; }
+    clear: both; 
+    border-radius: .5em;
+
+  }
+  .flash-card .flash-card-answers li::first-letter{
+      font-size: 20px;
+      color: green;
+      font-family: Times;
+    }
     .flash-card .flash-card-answers:before, .flash-card .flash-card-answers:after {
       content: " ";
       /* 1 */
       display: table;
       /* 2 */ }
     .flash-card .flash-card-answers:after {
-      clear: both; }
+      clear: both; 
+      }
   .flash-card .flash-card-answer {
     min-height: 100px;
     text-align: center;
-    border: 1px solid black;
-    padding: 20px;
+    padding: 11px;
+    border: 5px ridge;
     float: left;
     width: 32%;
     margin-right: 2%;
-    cursor: pointer;
-    line-height: 1.3em; }
+    cursor: url(/cursors/test.png), auto;
+    line-height: 1.3em;
+    border-radius: 3px; 
+    box-shadow: none;
+  background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
+    -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
+    
+    linear-gradient(180deg, hsl(0,0%,78%)  0%, 
+    hsl(0,0%,90%) 47%, 
+    hsl(0,0%,78%) 53%,
+    hsl(0,0%,70%)100%);
+  }
+
     .flash-card .flash-card-answer:last-child {
       margin-right: 0; }
 
 .answer-feedback {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10px;
   font-weight: bold; }
   .answer-feedback.correct {
     color: green; }
   .answer-feedback.incorrect {
     color: red; }
 
-#statistics {
-  padding: 40px; }
-  #statistics:before, #statistics:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  #statistics:after {
-    clear: both; }
-  #statistics #scoreboard {
-    float: right;
-    margin: 0 auto; }
-    #statistics #scoreboard h3 {
-      margin-right: 40px;
-      float: left; }
-      #statistics #scoreboard h3:last-child {
-        margin-right: 0; }
-      #statistics #scoreboard h3 span {
-        font-weight: bold; }
+.answer-feedback.correct {
+    color: green;
+}
+.answer-feedback.incorrect {
+    color: red;
+}
+
+.flash-card-answers li:hover
+{
+position:relative;
+animation:animated_div 5s 1;
+-moz-animation:animated_div 5s 1;
+-webkit-animation:animated_div 5s 1;
+-o-animation:animated_div 5s 1;
+}
+
+h2.incorrect{
+position:relative;
+animation:animated_div 3s 1;
+-moz-animation:animated_div 3s 1;
+-webkit-animation:animated_div 3s 1;
+-o-animation:animated_div 3s 1;
+border-radius:5px;
+-webkit-border-radius:5px;
+}
+h2.correct{
+position:relative;
+animation:animated_div2 5s 1;
+-moz-animation:animated_div2 5s 1;
+-webkit-animation:animated_div2 5s 1;
+-o-animation:animated_div2 5s 1;
+border-radius:5px;
+-webkit-border-radius:5px;
+}
+
+.flash-card h1{
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+-ms-transition: all 0.3s ease;
+}
+.steel.ng-binding {
+  min-height: 94px;
+    background-color: #0f0;;
+    padding:  9px;
+    border-radius: 3px;
+    cursor: url(/cursors/radioactive-set_normalselect.cur), auto;
+}
+*{
+  cursor: url(/cursors/test.png), auto;
+}
+.well{
+  display: -webkit-flex;
+  -webkit-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: 767px) {
+  .flashcard
+}
+
+/***********************Original Animation********************/
+@keyframes animated_div
+{
+0%    {transform: rotate(-5deg);top:0px;}
+1%   {transform: rotate(5deg);top:0px;}
+2%   {transform: rotate(-5deg);top:0px;}
+3%   {transform: rotate(5deg);top:0px;}
+4%    {transform: rotate(-5deg);top:0px;}
+5%   {transform: rotate(5deg);top:0px;}
+6%   {transform: rotate(-5deg);top:0px;}
+7%   {transform: rotate(5deg);top:0px;}
+8%    {transform: rotate(-5deg);top:0px;}
+9%   {transform: rotate(5deg);top:0px;}
+10%   {transform: rotate(-5deg);top:0px;}
+11%   {transform: rotate(5deg);top:0px;}
+70%   {transform: rotate(0deg);bottom:50px;}
+99%   {transform: rotate(0deg);bottom:50px;}
+100%  {transform: rotate(-360deg);top:1000px; display: none;}
+}
+
+@-webkit-keyframes animated_div
+{
+0%    {transform: rotate(-5deg);top:0px;}
+1%   {transform: rotate(5deg);top:0px;}
+2%   {transform: rotate(-5deg);top:0px;}
+3%   {transform: rotate(5deg);top:0px;}
+4%    {transform: rotate(-5deg);top:0px;}
+5%   {transform: rotate(5deg);top:0px;}
+6%   {transform: rotate(-5deg);top:0px;}
+7%   {transform: rotate(5deg);top:0px;}
+8%    {transform: rotate(-5deg);top:0px;}
+9%   {transform: rotate(5deg);top:0px;}
+10%   {transform: rotate(-5deg);top:0px;}
+11%   {transform: rotate(5deg);top:0px;}
+70%   {transform: rotate(0deg);bottom:50px;}
+99%   {transform: rotate(0deg);bottom:50px;}
+100%  {transform: rotate(-360deg);top:1000px; display: none;}
+}
+
+@-moz-keyframes animated_div
+{
+0%    {transform: rotate(-5deg);top:0px;}
+1%   {transform: rotate(5deg);top:0px;}
+2%   {transform: rotate(-5deg);top:0px;}
+3%   {transform: rotate(5deg);top:0px;}
+4%    {transform: rotate(-5deg);top:0px;}
+5%   {transform: rotate(5deg);top:0px;}
+6%   {transform: rotate(-5deg);top:0px;}
+7%   {transform: rotate(5deg);top:0px;}
+8%    {transform: rotate(-5deg);top:0px;}
+9%   {transform: rotate(5deg);top:0px;}
+10%   {transform: rotate(-5deg);top:0px;}
+11%   {transform: rotate(5deg);top:0px;}
+70%   {transform: rotate(0deg);bottom:50px;}
+99%   {transform: rotate(0deg);bottom:50px;}
+100%  {transform: rotate(-360deg);top:1000px; display: none;}
+}
+
+@-o-keyframes animated_div
+{
+0%    {transform: rotate(-5deg);top:0px;}
+1%   {transform: rotate(5deg);top:0px;}
+2%   {transform: rotate(-5deg);top:0px;}
+3%   {transform: rotate(5deg);top:0px;}
+4%    {transform: rotate(-5deg);top:0px;}
+5%   {transform: rotate(5deg);top:0px;}
+6%   {transform: rotate(-5deg);top:0px;}
+7%   {transform: rotate(5deg);top:0px;}
+8%    {transform: rotate(-5deg);top:0px;}
+9%   {transform: rotate(5deg);top:0px;}
+10%   {transform: rotate(-5deg);top:0px;}
+11%   {transform: rotate(5deg);top:0px;}
+70%   {transform: rotate(0deg);bottom:50px;}
+99%   {transform: rotate(0deg);bottom:50px;}
+100%  {transform: rotate(-360deg);top:1000px; display: none;}
+}
+
+
+/***********************Original Animation2********************/
+@keyframes animated_divs
+{
+0%    {transform: font-size:40px  ;top:0px;}
+10%   {transform: font-size:50px  ;top:0px;}
+40%   {transform: font-size:60px  ;top:0px;}
+70%   {transform: font-size:70px ;bottom:50px;}
+100%  {transform: font-size:40px ;top:1000px;}
+}
+
+@-webkit-keyframes animated_divs
+{
+0%    {transform: font-size:40px  ;top:0px;}
+10%   {transform: font-size:50px  ;top:0px;}
+40%   {transform: font-size:60px  ;top:0px;}
+70%   {transform: font-size:70px ;bottom:50px;}
+100%  {transform: font-size:40px ;top:1000px;}
+}
+
+@-moz-keyframes animated_divs
+{
+0%    {transform: font-size:40px  ;top:0px;}
+10%   {transform: font-size:50px  ;top:0px;}
+40%   {transform: font-size:60px  ;top:0px;}
+70%   {transform: font-size:70px ;bottom:50px;}
+100%  {transform: font-size:40px ;top:1000px;}
+}
+
+@-o-keyframes animated_divs
+{
+0%    {transform: font-size:40px  ;top:0px;}
+10%   {transform: font-size:50px  ;top:0px;}
+40%   {transform: font-size:60px  ;top:0px;}
+70%   {transform: font-size:70px ;bottom:50px;}
+100%  {transform: font-size:40px ;top:1000px;}
+}
+
+/***********************Original Animation3********************/
+
+@keyframes animated_div2
+{
+0%    {transform: rotate(0deg);top:-30px;}
+5%   {transform: rotate(-45deg);top:0px;}
+10%   {transform: rotate(-90deg);top:-30px;}
+15%   {transform: rotate(-135deg);top:0px;}
+20%    {transform: rotate(-180deg);top:-30px;}
+25%   {transform: rotate(-225deg);top:0px;}
+30%   {transform: rotate(-270deg);top:-30px;}
+35%   {transform: rotate(-315deg);top:0px;}
+40%    {transform: rotate(-360deg);top:-30px;}
+45%   {transform: rotate(-405deg);top:0px;}
+50%   {transform: rotate(-450deg);top:-30px;}
+55%   {transform: rotate(-495deg);top:0px;}
+60%   {transform: rotate(-540deg);top:-30px;}
+65%   {transform: rotate(-585deg);top:0px;}
+70%   {transform: rotate(-620deg);top:-30px;}
+75%   {transform: rotate(-665deg);top:0px;}
+80%   {transform: rotate(-710deg);top:-30px;}
+85%   {transform: rotate(-755deg);top:0px;}
+90%   {transform: rotate(-800deg);top:-30px;}
+95%   {transform: rotate(-845deg);top:0px;}
+100%  {transform: rotate(-890deg);top:-30px;}
+}
+
+@-webkit-keyframes animated_div2
+{
+0%    {transform: rotate(0deg);top:-30px;}
+5%   {transform: rotate(-45deg);top:0px;}
+10%   {transform: rotate(-90deg);top:-30px;}
+15%   {transform: rotate(-135deg);top:0px;}
+20%    {transform: rotate(-180deg);top:-30px;}
+25%   {transform: rotate(-225deg);top:0px;}
+30%   {transform: rotate(-270deg);top:-30px;}
+35%   {transform: rotate(-315deg);top:0px;}
+40%    {transform: rotate(-360deg);top:-30px;}
+45%   {transform: rotate(-405deg);top:0px;}
+50%   {transform: rotate(-450deg);top:-30px;}
+55%   {transform: rotate(-495deg);top:0px;}
+60%   {transform: rotate(-540deg);top:-30px;}
+65%   {transform: rotate(-585deg);top:0px;}
+70%   {transform: rotate(-620deg);top:-30px;}
+75%   {transform: rotate(-665deg);top:0px;}
+80%   {transform: rotate(-710deg);top:-30px;}
+85%   {transform: rotate(-755deg);top:0px;}
+90%   {transform: rotate(-800deg);top:-30px;}
+95%   {transform: rotate(-845deg);top:0px;}
+100%  {transform: rotate(-890deg);top:-30px;}
+}
+
+@-moz-keyframes animated_div2
+{
+0%    {transform: rotate(0deg);top:-30px;}
+5%   {transform: rotate(-45deg);top:0px;}
+10%   {transform: rotate(-90deg);top:-30px;}
+15%   {transform: rotate(-135deg);top:0px;}
+20%    {transform: rotate(-180deg);top:-30px;}
+25%   {transform: rotate(-225deg);top:0px;}
+30%   {transform: rotate(-270deg);top:-30px;}
+35%   {transform: rotate(-315deg);top:0px;}
+40%    {transform: rotate(-360deg);top:-30px;}
+45%   {transform: rotate(-405deg);top:0px;}
+50%   {transform: rotate(-450deg);top:-30px;}
+55%   {transform: rotate(-495deg);top:0px;}
+60%   {transform: rotate(-540deg);top:-30px;}
+65%   {transform: rotate(-585deg);top:0px;}
+70%   {transform: rotate(-620deg);top:-30px;}
+75%   {transform: rotate(-665deg);top:0px;}
+80%   {transform: rotate(-710deg);top:-30px;}
+85%   {transform: rotate(-755deg);top:0px;}
+90%   {transform: rotate(-800deg);top:-30px;}
+95%   {transform: rotate(-845deg);top:0px;}
+100%  {transform: rotate(-890deg);top:-30px;}
+}
+
+@-o-keyframes animated_div2
+{
+0%    {transform: rotate(0deg);top:-30px;}
+5%   {transform: rotate(-45deg);top:0px;}
+10%   {transform: rotate(-90deg);top:-30px;}
+15%   {transform: rotate(-135deg);top:0px;}
+20%    {transform: rotate(-180deg);top:-30px;}
+25%   {transform: rotate(-225deg);top:0px;}
+30%   {transform: rotate(-270deg);top:-30px;}
+35%   {transform: rotate(-315deg);top:0px;}
+40%    {transform: rotate(-360deg);top:-30px;}
+45%   {transform: rotate(-405deg);top:0px;}
+50%   {transform: rotate(-450deg);top:-30px;}
+55%   {transform: rotate(-495deg);top:0px;}
+60%   {transform: rotate(-540deg);top:-30px;}
+65%   {transform: rotate(-585deg);top:0px;}
+70%   {transform: rotate(-620deg);top:-30px;}
+75%   {transform: rotate(-665deg);top:0px;}
+80%   {transform: rotate(-710deg);top:-30px;}
+85%   {transform: rotate(-755deg);top:0px;}
+90%   {transform: rotate(-800deg);top:-30px;}
+95%   {transform: rotate(-845deg);top:0px;}
+100%  {transform: rotate(-890deg);top:-30px;}
+}

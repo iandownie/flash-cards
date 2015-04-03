@@ -5,28 +5,56 @@
         <!-- We've provided some styles for you, aren't we nice? -->
         <link rel="stylesheet" type="text/css" href="reset.css" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="angular.js"></script>
+        <script type="text/javascript" src="app.js"></script>
     </head>
-    <body ng-app="flashCards" ng-controller="MainController">
-    	<div
-    		ng-repeat="flashCard in flashCards | orderBy : 'question'"
-    		class="flash-card">
-    	    <h1>{{ flashCard.question | uppercase }}</h1>
-    	    <ul class="flash-card-answers">
-    	    	<li
-    	    		ng-repeat="answer in flashCard.answers"
-    	    		class="flash-card-answer"
-    	    		ng-click="answerQuestion(answer, flashCard)">{{ answer.text }}</li>
-    	    </ul>
-    	    <h2
-    	    	class="answer-feedback"
-    	    	ng-class="flashCard.answeredCorrectly ? 'correct' : 'incorrect'"
-    	    	ng-show="flashCard.answered">
-    	        <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
-    	        <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
-    	    </h2>
-    	</div>
-    	<script src="angular.js"></script>
-    	<script src="app.js"></script>
-    	<script src="main.controller.js"></script>
+    <body ng-app="FlashCards" ng-controller="MainController">
+<!--     	<pre>&lt;div class='spriteanim'
+	data-baseurl='radioactive2'
+	data-grid='64x64'
+	data-blocksize='32x32'
+	data-frames='16'
+	data-fps='12'
+	data-autoplay='true'
+	data-autoload='true'
+	data-retina='true'&gt;
+&lt;/div&gt;</pre> -->
+				<div class='well'>
+					<div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'></div>
+					
+				</div>
+	    <div class="flash-card"  ng-repeat="n in flashCards | orderBy: 'question'">
+	   
+		    <h1>{{n.question | uppercase}}</h1>
+		    <ul class="flash-card-answers">
+		        <li id="animated_div" class="flash-card-answer" ng-click="answerQuestion(m.correct)" ng-repeat="m in n.answers">
+		        	<div class="steel">
+		            {{m.text}}
+		            </div>
+		        </li>
+		    </ul>
+		    <h2 class="answer-feedback" ng-show="answered" ng-class="{correct: answeredCorrectly, incorrect: !answeredCorrectly}">
+		        <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
+		        <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
+		    </h2>
+			 <div class='well'>
+			    <div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'>
+			    </div>
+			</div>    
+		</div>
+	<script src="lib/jquery-1.10.2.min.js"></script>
+	<script src="lib/jquery.spriteanim.js"></script>
+	<script>
+		jQuery(function($) {
+				$('.spriteanim').spriteanim();
+				
+				$('.spriteanim2').spriteanim().on('frame-15-shown', function() {
+					$(this).spriteanim('stop');
+					window.setTimeout(function() {
+						$(this).spriteanim('play');
+					}.bind(this), 2000)
+				});
+			});
+	</script>	
     </body>
 </html>
