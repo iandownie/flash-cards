@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box; }
 body{
-  background-color: black;
+  background-image: url(/flash.jpg);
 }
 .flash-card {
-  color: #000;
-  text-shadow: -1px -1px #30aa30;
+  color: yellow;
+  text-shadow: -1px -1px #aa3030;
   min-width: 650px;
   width: 45%;
   height: 300px;
@@ -15,10 +15,10 @@ body{
   border-radius: 10px;
   font-family: Helvetica;
   padding: 30px;
-  background-color: rgb(52, 255, 20);
+  background-color: rgb(255, 20, 20);
   border: 2px dashed #fff;
   line-height: 1.3em;
-  box-shadow: 0 0 0 4px rgb(52, 255, 20), 0px 0px 17px 14px rgba(52, 255, 20, 0.5);
+  box-shadow: 0 0 0 4px rgb(255, 25, 20), 0px 0px 17px 14px rgba(52, 255, 20, 0.5);
   border-radius: 10%;
   float: left; 
   margin-left:3.3333% }

@@ -1,45 +1,83 @@
 var app = angular.module('FlashCards', []);
+// app.controller('FlashCardController', function(ScoreFactory,$scope){
+// 	$scope.answerQuestion=function(answer){
+// 		// var answeredCorrectly;
 
-app.controller('FlashCardController', function($scope){
-	$scope.answerQuestion=function(answer){
-		// var answeredCorrectly;
-
-		if (answer===true){
-			$scope.answeredCorrectly=true;
-		}else{
-			$scope.answeredCorrectly=false;
-		}
-		$scope.answered=true;
-	};
+// 		if (answer===true){
+// 			$scope.answeredCorrectly=true;
+// 			ScoreFactory.correct++;
+// 		}else{
+// 			$scope.answeredCorrectly=false;
+// 			ScoreFactory.incorrect++;
+// 		}
+// 		$scope.answered=true;
+// 	};
 
 
-});
+// });
  
-app.controller('MainController', function($scope) {
-	$scope.flashCards = [
-	    {
-	        question: 'What is Angular?',
-	        answers: [
-	            { text: 'A front-end framework for great power!', correct: true },
-	            { text: 'Something lame, who cares, whatever.', correct: false },
-	            { text: 'Some kind of fish, right?', correct: false }
-	        ]
-	    },
-	    {
-	        question: 'What is a controller?',
-	        answers: [
-	            { text: 'Something that manages my front-end routes', correct: false },
-	            { text: 'A function that allows me to manage a scope', correct: true },
-	            { text: 'An Angular template', correct: false }
-	        ]
-	    },
-	    {
-	        question: 'What does {{ }} do?',
-	        answers: [
-	            { text: 'It runs some Javascript', correct: false },
-	            { text: 'It looks for variables in HTML', correct: false },
-	            { text: 'It runs an Angular expression that accesses my $scope', correct: true }
-	        ]
-	    }
-	];
-});
+// app.controller('MainController', function(FlashCardsFactory, $scope, $http) {
+// 	$scope.categories = [
+// 	    'MongoDB',
+// 	    'Express',
+// 	    'Angular',
+// 	    'Node'];
+
+	
+// 	$scope.getCategoryCards=function(cat){
+// 		FlashCardsFactory.getFlashCards(cat).then(function(data){
+// 		$scope.flashCards=data;
+
+// 		$scope.myCategory=cat;
+// 		console.log($scope.myCategory)
+// 	});
+// 	};
+// 	$scope.resetCards=function(){
+// 		FlashCardsFactory.getFlashCards().then(function(data){
+// 		$scope.flashCards=data
+// 		$scope.myCategory=false;
+// 	});
+// };
+
+
+// 	FlashCardsFactory.getFlashCards().then(function(data){
+// 		$scope.flashCards=data
+// 	});
+// // console.log($scope.flashCards);
+// 	// FlashCardsFactory.getFlashCards().then(function(data){
+// 	// 	$scope.flashCards =data;
+// 	// });
+	    
+
+// });
+
+// app.factory('FlashCardsFactory', function ($http) {
+//     return { 
+//     	getFlashCards: function(cat){
+
+//     		var parameters={}
+//     		if (cat){
+//     			parameters.category=cat;
+//     		}
+// 	    	return $http.get('/cards',{
+// 	    		params:parameters
+// 	    	}).then(function(response){
+
+// 	    		return response.data;
+// 	    	})
+// 	    }
+
+	    	
+// 	};
+// });
+
+// app.factory("ScoreFactory",function(){
+	
+// 	return {
+//         correct: 0,
+//         incorrect: 0
+//     };
+// })
+// app.controller("StatsController",function($scope,ScoreFactory){
+// 	$scope.scores = ScoreFactory;
+// })
