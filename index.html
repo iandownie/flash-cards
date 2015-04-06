@@ -12,6 +12,7 @@
         <script type="text/javascript" src="/js/factories/ScoreFactory.js"></script>
         <script type="text/javascript" src="/js/factories/FlashCardsFactory.js"></script>
         <script type="text/javascript" src="/js/controllers/MainController.js"></script>
+        <script type="text/javascript" src="/js/directives/loader.js"></script>
     </head>
     <body ng-app="FlashCards">
 		<div ng-controller="StatsController" id="statistics">
@@ -24,8 +25,10 @@
 		</div>
 		<div ng-controller="MainController">
 		<div id="category-btns">
+			<loader ng-hide="!loader"></loader>
 			<button ng-click="resetCards()">All</button>
-			<button class="category-button" ng-repeat= "category in categories" ng-click="getCategoryCards(category)" ng-class="{active: myCategory===category}">{{category}}</button>	
+			<button class="category-button" ng-repeat= "category in categories" ng-click="getCategoryCards(category)" ng-click="getLoader()" ng-class="{active: myCategory===category}">{{category}}</button>	
+			<loader ng-hide="!loader"></loader>
 		</div>
 <!-- 			<div class='well'>
 				<div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'></div>

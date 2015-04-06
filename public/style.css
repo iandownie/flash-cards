@@ -162,6 +162,9 @@ border-radius:5px;
 #statistics{
   color:white;
 }
+.loader{
+  display:none;
+}
 
 /***********************Original Animation********************/
 @keyframes animated_div
