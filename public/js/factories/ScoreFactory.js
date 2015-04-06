@@ -4,4 +4,4 @@ app.factory("ScoreFactory",function(){
         correct: 0,
         incorrect: 0
     };
-})
+});

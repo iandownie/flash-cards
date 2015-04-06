@@ -13,13 +13,13 @@ app.controller('MainController', function(FlashCardsFactory, $scope, $http) {
 
 	$scope.getCategoryCards=function(cat){
 			$scope.loader=true;
-			console.log("first: ",$scope)
+			console.log("first: ",$scope);
 			//setTimeout(function(){
 				FlashCardsFactory.getFlashCards(cat).then(function(data){
 					$scope.flashCards=data;
 					$scope.myCategory=cat;
 					$scope.loader=false;
-					console.log("second: ",$scope.loader)
+					console.log("second: ",$scope.loader);
 				});
 			//}, 3000);
 		
@@ -28,7 +28,7 @@ app.controller('MainController', function(FlashCardsFactory, $scope, $http) {
 		$scope.loader=true;
 
 		FlashCardsFactory.getFlashCards().then(function(data){
-		$scope.flashCards=data
+		$scope.flashCards=data;
 		$scope.myCategory=false;
 		$scope.loader=false;
 	});
@@ -36,7 +36,7 @@ app.controller('MainController', function(FlashCardsFactory, $scope, $http) {
 
 
 	FlashCardsFactory.getFlashCards().then(function(data){
-		$scope.flashCards=data
+		$scope.flashCards=data;
 			//$scope.loader = false;
 
 	});

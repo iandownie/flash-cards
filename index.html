@@ -12,7 +12,8 @@
         <script type="text/javascript" src="/js/factories/ScoreFactory.js"></script>
         <script type="text/javascript" src="/js/factories/FlashCardsFactory.js"></script>
         <script type="text/javascript" src="/js/controllers/MainController.js"></script>
-        <script type="text/javascript" src="/js/directives/loader.js"></script>
+        <script type="text/javascript" src="/js/directives/loader/loader.js"></script>
+        <script type="text/javascript" src="/js/directives/flashCard/flashCard.js"></script>
     </head>
     <body ng-app="FlashCards">
 		<div ng-controller="StatsController" id="statistics">
@@ -35,26 +36,15 @@
 				
 			</div> -->
 		<div id="cards">		
-		    <div ng-controller="FlashCardController" class="flash-card"  ng-repeat="n in flashCards | orderBy: 'question'">
+		    <flash-card ng-repeat="n in flashCards | orderBy: 'question'" card="n"></flash-card>
+
+			
 		   		
-			    <h1>{{n.question | uppercase}}</h1>
-			    <h3>QUESTION CATEGORY: {{n.category | uppercase}}</h3>
-			    <ul class="flash-card-answers">
-			        <li id="animated_div" class="flash-card-answer" ng-click="answerQuestion(m.correct)" ng-repeat="m in n.answers">
-			        	<div class="steel">
-			            {{m.text| uppercase}}
-			            </div>
-			        </li>
-			    </ul>
-			    <h2 class="answer-feedback" ng-show="answered" ng-class="{correct: answeredCorrectly, incorrect: !answeredCorrectly}">
-			        <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
-			        <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
-			    </h2>
+		<!-- 
 				 <div class='well'>
 				    <div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'>
 				    </div>
-				</div>    
-			</div>
+				</div> -->   
 		</div>
 	<script src="lib/jquery-1.10.2.min.js"></script>
 	<script src="lib/jquery.spriteanim.js"></script>
