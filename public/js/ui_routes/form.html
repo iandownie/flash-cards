@@ -1,0 +1,29 @@
+<div ng-controller="NewCardController">
+	<error ng-show="newCardForm.firstanswer.$error.maxlength">Answer 1 is too long!</error>
+	<error ng-show="newCardForm.secondanswer.$error.maxlength">Answer 2 is too long!</error>
+	<error ng-show="newCardForm.thirdanswer.$error.maxlength">Answer 3 is too long!</error>
+	<error ng-show="newCardForm.category.$touched && newCardForm.category.$error.required">Category is required</error>
+	<error ng-show="newCardForm.question.$touched && newCardForm.question.$error.required" >Question is required</error>
+	<error ng-show="newCardForm.question.$error.minlength">Question must be longer</error>
+	<form ng-submit="newCardForm.$valid && submitCard(newCard)" name="newCardForm">
+		<input ng-model="newCard.question" ng-minlength="15" name="question" required type="text"/>
+		<div>
+			<input name="firstanswer" ng-model="newCard.answers[0].text" ng-maxlength="39" required type="text"/>
+
+			<input ng-model="newCard.answers[0].correct"type="checkbox"/>
+			<input name="secondanswer" ng-maxlength="39" ng-model="newCard.answers[1].text" required type="text"/>
+
+			<input ng-model="newCard.answers[1].correct"ng-model="answer" type="checkbox"/>
+			<input name="thirdanswer" ng-maxlength="39" ng-model="newCard.answers[2].text" required type="text"/>
+
+			<input ng-model="newCard.answers[2].correct" type="checkbox"/>
+		</div>
+		<select name="category" ng-model="newCard.category" required >
+			<option>MongoDB</option>
+			<option>Express</option>
+			<option>Angular</option>
+			<option>Node</option>
+		</select>
+		<button>Submit</button>
+	</form>
+</div>	

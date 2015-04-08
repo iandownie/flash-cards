@@ -1,4 +1,4 @@
-var app = angular.module('FlashCards', []);
+var app = angular.module('FlashCards', ['ui.router']);
 app.controller('FlashCardController', function(ScoreFactory,$scope){
 	$scope.answerQuestion=function(answer){
 		// var answeredCorrectly;
@@ -93,3 +93,37 @@ app.factory("ScoreFactory",function(){
 app.controller("StatsController",function($scope,ScoreFactory){
 	$scope.scores = ScoreFactory;
 })
+
+app.config(function($stateProvider){
+	$stateProvider.state('cards', {
+		url: '/flashcards',
+		templateUrl: '/js/ui_routes/cards.html',
+		controller: 'MainController'
+	}).state('cards.category', {
+
+		url: '/category/:categoryId',
+		parent: 'cards',
+		templateUrl: '/js/ui_routes/cat-cards.html',
+		controller: function($stateParams){
+			console.log($stateParams)
+		}
+	});
+	$stateProvider.state('score', {
+		url: '/score',
+		templateUrl: '/js/ui_routes/score.html',
+		controller: 'StatsController'
+	});
+	$stateProvider.state('form', {
+		url: '/form',
+		templateUrl: '/js/ui_routes/form.html',
+		controller: 'NewCardController'
+	})
+	
+		// resolve: {
+		// 	categoryId: function($stateParams, categories){
+		// 		return categories[$stateParams.categoryId]
+		// 	}
+		// }
+	
+})
+

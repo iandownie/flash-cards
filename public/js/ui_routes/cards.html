@@ -1,0 +1,12 @@
+<div ng-controller="MainController">
+	<div id="category-btns">
+		<loader ng-hide="!loader"></loader>
+		<button ng-click="getCategoryCards()">All</button>
+		<button ui-sref="cards.category" class="category-button" ng-repeat= "category in categories" ng-click="getCategoryCards(category)" ng-click="getLoader()" ng-class="{active: myCategory===category}">{{category}}</button>	
+		<loader ng-hide="!loader"></loader>
+	</div>
+	<div id="cards">
+		<ui-view></ui-view>		
+	    
+	</div>
+</div>	

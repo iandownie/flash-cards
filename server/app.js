@@ -1,7 +1,7 @@
 var path = require('path');
 var express = require('express');
 var FlashCardModel = require('./models/flash-card-model');
-
+var bodyparser=require('body-parser');
 var app = express(); // Create an express app!
 module.exports = app; // Export it so it can be require('')'d
 
@@ -21,7 +21,8 @@ var indexHtmlPath = path.join(__dirname, '../index.html');
 // something in our public folder, serve up that file
 // e.g. angular.js, style.css
 app.use(express.static(publicPath));
-
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
 // If we're hitting our home page, serve up our index.html file!
 app.get('/', function (req, res) {
     res.sendFile(indexHtmlPath);
@@ -31,6 +32,19 @@ app.use(function (req, res, next) {
 	console.log('made it')
 	next();
 });
+
+app.post('/cards', function(req, res){
+    console.log(req.body)
+    var flashcard=new FlashCardModel({
+        question: req.body.question,
+        answers: req.body.answers,
+        category: req.body.category
+    })
+    flashcard.save(function(err, card){
+        res.json(card)
+    })
+    // res.end()
+})
 
 app.get('/cards', function (req, res) {
 

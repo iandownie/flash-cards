@@ -1,8 +1,8 @@
 <div class="flash-card">
 	<h1>{{card.question | uppercase}}</h1>
 	    <h3>QUESTION CATEGORY: {{card.category | uppercase}}</h3>
-	    <ul class="flash-card-answers">
-	        <li id="animated_div" class="flash-card-answer" ng-click="answerQuestion(m.correct)" ng-repeat="m in card.answers">
+	    <ul class="flash-card-answers" >
+	        <li id="animated_div" class="flash-card-answer" ng-click="answerQuestion(m.correct)" ng-repeat="m in card.answers" on-click>
 	        	<div class="steel">
 	            {{m.text| uppercase}}
 	            </div>

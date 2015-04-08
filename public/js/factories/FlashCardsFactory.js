@@ -12,6 +12,12 @@ app.factory('FlashCardsFactory', function ($http) {
 
 	    		return response.data;
 	    	})
+	    },
+	    submitCard:function(card){
+	    	
+	    	return $http.post('/cards', card).then(function(response){
+	    		
+	    	})
 	    }
 
 	    	

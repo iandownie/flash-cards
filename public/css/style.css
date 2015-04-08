@@ -41,6 +41,22 @@ body{
     text-shadow: none;
     font-weight: bold;
     font-family: impact;}
+
+#new-card-btn{
+  background-image: url(/flash.jpg);
+    background-size: 400%;
+    background-position: 182px 127px;
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 100%;
+    margin: 0 12px;
+    width: 75px;
+    height: 75px;
+    box-shadow: 0 0 0 8px black, 2px 2px 9px 19px rgba(0, 0, 20, 0.5);
+    text-shadow: none;
+    font-weight: bold;
+    font-family: impact;}
+}
 #cards{
 
 }  
@@ -152,8 +168,7 @@ body{
 box-shadow: 0 0 0 8px black, 0px 0px 9px 19px rgba(255, 0, 0, 0.5);
 cursor: url(/cursors/flash.cur), auto;
 }
-.flash-card-answers li:hover
-  {
+li.animation1{
   
   position:relative;
   animation:animated_div 5s 1;
@@ -181,13 +196,7 @@ border-radius:5px;
 -webkit-border-radius:5px;
 }
 
-.flash-card h1{
-  height: 54px;
--webkit-transition: all 0.3s ease;
--moz-transition: all 0.3s ease;
--o-transition: all 0.3s ease;
--ms-transition: all 0.3s ease;
-}
+
 .steel.ng-binding {
   min-height: 94px;
     background-color: none;

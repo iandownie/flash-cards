@@ -14,51 +14,102 @@
         <script type="text/javascript" src="/js/controllers/MainController.js"></script>
         <script type="text/javascript" src="/js/directives/loader/loader.js"></script>
         <script type="text/javascript" src="/js/directives/flashCard/flashCard.js"></script>
+        <script type="text/javascript" src="/js/directives/actions/actions.js"></script>
+        <script type="text/javascript" src="/js/controllers/NewCardController.js"></script>
+        <script type="text/javascript" src="/js/directives/error.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     </head>
     <body ng-app="FlashCards">
-		<div ng-controller="StatsController" id="statistics">
+    	<nav>
+    		<button ng-click="getCategoryCards()" ui-sref="cards.category">Main View</button>
+    		<button ui-sref="form">Add Card</button>
+    		<button ui-sref="score">Score</button>
+    	</nav>
+		<ui-view></ui-view>
 
-		    <div id="scoreboard">
-		        <h3>Correct: <span>{{ scores.correct }}</span></h3>
-		        <h3>Incorrect: <span>{{ scores.incorrect }}</span></h3>
-		    </div>
 
-		</div>
-		<div ng-controller="MainController">
-		<div id="category-btns">
-			<loader ng-hide="!loader"></loader>
-			<button ng-click="resetCards()">All</button>
-			<button class="category-button" ng-repeat= "category in categories" ng-click="getCategoryCards(category)" ng-click="getLoader()" ng-class="{active: myCategory===category}">{{category}}</button>	
-			<loader ng-hide="!loader"></loader>
-		</div>
-<!-- 			<div class='well'>
-				<div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'></div>
-				
-			</div> -->
-		<div id="cards">		
-		    <flash-card ng-repeat="n in flashCards | orderBy: 'question'" card="n"></flash-card>
+<!-- 		 <div ng-controller="StatsController" id="statistics">
+		     <div id="scoreboard">
+		         <h3>Correct: <span>{{ scores.correct }}</span></h3>
+		         <button ng-click="swap()" id="new-card-btn">New Card</button>
+		         <h3>Incorrect: <span>{{ scores.incorrect }}</span></h3>
+		     </div>
+		 </div> -->
 
+
+
+
+
+<!-- 		 <div ng-controller="NewCardController">
+		 	<error ng-show="newCardForm.firstanswer.$error.maxlength">Answer 1 is too long!</error>
+		 	<error ng-show="newCardForm.secondanswer.$error.maxlength">Answer 2 is too long!</error>
+		 	<error ng-show="newCardForm.thirdanswer.$error.maxlength">Answer 3 is too long!</error>
+		 	<error ng-show="newCardForm.category.$touched && newCardForm.category.$error.required">Category is required</error>
+		 	<error ng-show="newCardForm.question.$touched && newCardForm.question.$error.required" >Question is required</error>
+		 	<error ng-show="newCardForm.question.$error.minlength">Question must be longer</error>
+		 	<form ng-submit="newCardForm.$valid && submitCard(newCard)" name="newCardForm">
+		 		<input ng-model="newCard.question" ng-minlength="15" name="question" required type="text"/>
+		 		<div>
+		 			<input name="firstanswer" ng-model="newCard.answers[0].text" ng-maxlength="39" required type="text"/>
+
+		 			<input ng-model="newCard.answers[0].correct"type="checkbox"/>
+		 			<input name="secondanswer" ng-maxlength="39" ng-model="newCard.answers[1].text" required type="text"/>
+
+		 			<input ng-model="newCard.answers[1].correct"ng-model="answer" type="checkbox"/>
+		 			<input name="thirdanswer" ng-maxlength="39" ng-model="newCard.answers[2].text" required type="text"/>
+
+		 			<input ng-model="newCard.answers[2].correct" type="checkbox"/>
+		 		</div>
+		 		<select name="category" ng-model="newCard.category" required >
+		 			<option>MongoDB</option>
+		 			<option>Express</option>
+		 			<option>Angular</option>
+		 			<option>Node</option>
+		 		</select>
+		 		<button   >Submit</button>
+		 	</form>	
+		 </div> -->
+
+
+		<!-- <div ng-controller="MainController"> -->
 			
-		   		
-		<!-- 
-				 <div class='well'>
-				    <div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'>
-				    </div>
-				</div> -->   
-		</div>
-	<script src="lib/jquery-1.10.2.min.js"></script>
-	<script src="lib/jquery.spriteanim.js"></script>
-	<script>
-		jQuery(function($) {
-				$('.spriteanim').spriteanim();
+
+
+<!-- 
+			<div id="category-btns">
+				<loader ng-hide="!loader"></loader>
+				<button ng-click="resetCards()">All</button>
+				<button class="category-button" ng-repeat= "category in categories" ng-click="getCategoryCards(category)" ng-click="getLoader()" ng-class="{active: myCategory===category}">{{category}}</button>	
+				<loader ng-hide="!loader"></loader>
+			</div>
+			<div id="cards">		
+			    <flash-card ng-repeat="n in flashCards | orderBy: 'question'" card="n"></flash-card>
+			</div> -->
 				
-				$('.spriteanim2').spriteanim().on('frame-15-shown', function() {
-					$(this).spriteanim('stop');
-					window.setTimeout(function() {
-						$(this).spriteanim('play');
-					}.bind(this), 2000)
+			   		
+
+
+
+
+		<!-- 		 <div class='well'>
+				     <div class='spriteanim2' data-baseurl='radioactive2' data-grid='64x64' data-blocksize='32x32' data-frames='16' data-fps='12' data-autoplay='true' data-autoload='true' data-retina='false'>
+				     </div>
+				 </div>   -->
+			
+		<!-- </div> -->
+		<script src="lib/jquery-1.10.2.min.js"></script>
+		<!--<script src="lib/jquery.spriteanim.js"></script> -->
+		<!--<script>
+			jQuery(function($) {
+					$('.spriteanim').spriteanim();
+					
+					$('.spriteanim2').spriteanim().on('frame-15-shown', function() {
+						$(this).spriteanim('stop');
+						window.setTimeout(function() {
+							$(this).spriteanim('play');
+						}.bind(this), 2000)
+					});
 				});
-			});
-	</script>	
+		</script>	-->
     </body>
 </html>
